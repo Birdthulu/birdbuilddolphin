@@ -82,8 +82,8 @@ jobs:
         run: |
           rm ${{ github.workspace }}/Ishiiruka/build-linux.sh
           rm ${{ github.workspace }}/Ishiiruka/build-appimage.sh
-          cp -v ${{ github.workspace }}/build-linux.sh ${{ github.workspace }}/Ishiiruka
-          cp -v ${{ github.workspace }}/build-appimage.sh ${{ github.workspace }}/Ishiiruka
+          cp -v ${{ github.workspace }}/Resources/build-linux.sh ${{ github.workspace }}/Ishiiruka
+          cp -v ${{ github.workspace }}/Resources/build-appimage.sh ${{ github.workspace }}/Ishiiruka
 
       - name: "Build Dolphin"
         if: success()
