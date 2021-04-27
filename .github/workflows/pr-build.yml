@@ -72,7 +72,7 @@ jobs:
           x11proto-xinerama-dev
 
       - name: "Clone Dolphin"
-        shell: cmd
+        shell: bash
         run: |
           git clone https://github.com/jlambert360/Ishiiruka
 
