@@ -96,8 +96,8 @@ jobs:
         if: success()
         working-directory: ${{ github.workspace }}
         run: |
-          chmod +x ./Ishiiruka/build-appimage.sh
-          ./Ishiiruka/build-appimage.sh
+          chmod +x ./build-appimage.sh
+          ./build-appimage.sh
 
       - name: "Package"
         if: success()
