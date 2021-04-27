@@ -19,14 +19,14 @@ jobs:
       - name: "Download Data"
         working-directory: ${{ github.workspace }}
         run: |
-          Invoke-WebRequest -Uri https://raw.githubusercontent.com/jlambert360/birdthulu.github.io/master/birdbuild.json -UseBasicParsing -OutFile "birdbuild.json"
-          Invoke-WebRequest -Uri https://projectplusgame.com/update.json -UseBasicParsing -OutFile "update.json"
+          Invoke-WebRequest -Uri https://raw.githubusercontent.com/jlambert360/birdthulu.github.io/master/BirdBuildTest.json -UseBasicParsing -OutFile "birdbuild.json"
+          Invoke-WebRequest -Uri https://raw.githubusercontent.com/jlambert360/birdthulu.github.io/master/PPlusTest.json -UseBasicParsing -OutFile "pplus.json"
 
       - name: "Get PPlus Version"
         id: pplus_version
         uses: notiz-dev/github-action-json-property@release
         with:
-          path: 'update.json'
+          path: 'pplus.json'
           prop_path: 'version'
 
       - name: "Get Bird Build Version"
@@ -35,20 +35,6 @@ jobs:
         with:
           path: 'birdbuild.json'
           prop_path: 'version'
-
-      - name: "Get Bird Build ID"
-        id: birdbuild_id
-        uses: bluwy/substitute-string-action@v1
-        with:
-          _input-text: '${{steps.birdbuild_version.outputs.prop}}'
-          Beta:
-
-      - name: "Get Bird Build ID Number"
-        uses: bhowell2/github-substring-action@v1.0.0
-        id: birdbuild_id2
-        with:
-          value: ${{ steps.birdbuild_id.outputs.result }}
-          index_of_str: "Bird Build "
 
       - name: "Checkout"
         uses: actions/checkout@v2.3.1
@@ -164,8 +150,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: "${{ steps.birdbuild_id2.outputs.substring }}"
-          release_name: "${{ steps.birdbuild_version.outputs.prop }}"
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
           body: "${{steps.birdbuild_version.outputs.prop}}"
           draft: false
           prerelease: false
