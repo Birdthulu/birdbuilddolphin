@@ -104,7 +104,7 @@ jobs:
         working-directory: ${{ github.workspace }}
         run: |
           mkdir artifact
-          FILE_NAME=linux.zip
+          FILE_NAME="linux.zip"
           chmod +x ./*.AppImage
           zip -r "${FILE_NAME}" ./*.AppImage*
           mv "${FILE_NAME}" ./artifact/
@@ -113,5 +113,5 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v2-preview
         with:
-          name: linux
+          name: "linux-fix"
           path: "./artifact/"
