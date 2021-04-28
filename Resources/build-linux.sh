@@ -6,6 +6,16 @@ CMAKE_FLAGS='-DLINUX_LOCAL_DEV=true'
 DATA_SYS_PATH="./Data/Sys/"
 BINARY_PATH="./build/Binaries/"
 
+COMMITHASH="75a36a73b56bce9aa83d3700e087f3f81ebccf68"
+FPPVERSION="2.27"
+
+# --- Patch tarball to display correct hash to other netplay clients
+echo "Patching git head"
+sed -i "s|\${GIT_EXECUTABLE} rev-parse HEAD|echo ${COMMITHASH}|g" CMakeLists.txt  # --set scm_rev_str everywhere to actual commit hash when downloaded
+sed -i "s|\${GIT_EXECUTABLE} describe --always --long --dirty|echo FM v$FPPVERSION|g" CMakeLists.txt # ensures compatibility w/ netplay
+sed -i "s|\${GIT_EXECUTABLE} rev-parse --abbrev-ref HEAD|echo HEAD|g" CMakeLists.txt
+# ---
+
 # Move into the build directory, run CMake, and compile the project
 mv -i /home/runner/work/birdbuilddolphin/birdbuilddolphin/Ishiiruka/* /home/runner/work/birdbuilddolphin/birdbuilddolphin/
 mkdir -p build
