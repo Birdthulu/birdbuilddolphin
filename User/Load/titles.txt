@@ -1,1 +1,0 @@
-RSBE01 = Set me as default! Use the .elf file to play!
