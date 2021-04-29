@@ -36,6 +36,16 @@ jobs:
           path: 'birdbuild.json'
           prop_path: 'version'
 
+      - name: 'Fetch Git Tags'
+        shell: bash
+        if: success()
+        run: |
+          git fetch --prune --unshallow
+          echo "GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_ENV
+          echo "GIT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+          echo "GIT_TAG=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
+          echo "CURR_DATE=$(date +%Y-%m-%d)" >> $GITHUB_ENV
+
       - name: "Checkout"
         uses: actions/checkout@v2.3.1
 
@@ -150,8 +160,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: ${{ env.GIT_HASH }}
+          release_name: Release ${{ env.GIT_HASH }}
           body: "${{steps.birdbuild_version.outputs.prop}}"
           draft: false
           prerelease: false
