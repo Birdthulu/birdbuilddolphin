@@ -19,8 +19,8 @@ jobs:
       - name: "Download Data"
         working-directory: ${{ github.workspace }}
         run: |
-          Invoke-WebRequest -Uri https://raw.githubusercontent.com/jlambert360/birdthulu.github.io/master/BirdBuildTest.json -UseBasicParsing -OutFile "birdbuild.json"
-          Invoke-WebRequest -Uri https://raw.githubusercontent.com/jlambert360/birdthulu.github.io/master/PPlusTest.json -UseBasicParsing -OutFile "pplus.json"
+          Invoke-WebRequest -Uri https://raw.githubusercontent.com/jlambert360/jlambert360.github.io/master/BirdBuildTest.json -UseBasicParsing -OutFile "birdbuild.json"
+          Invoke-WebRequest -Uri https://raw.githubusercontent.com/jlambert360/jlambert360.github.io/master/PPlusTest.json -UseBasicParsing -OutFile "pplus.json"
 
       - name: "Get PPlus Version"
         id: pplus_version
@@ -90,7 +90,7 @@ jobs:
         shell: powershell
         run: |
           (Get-Content ${{ github.workspace }}\Ishiiruka\Source\Core\UICommon\DiscordPresence.cpp) -replace '622143930900807680', '641740042007740456' | Out-File -encoding ASCII ${{ github.workspace }}\Ishiiruka\Source\Core\UICommon\DiscordPresence.cpp
-          (Get-Content ${{ github.workspace }}\Ishiiruka\Source\Core\DolphinWX\Main.cpp) -replace 'https://projectplusgame.com/update.json', 'https://raw.githubusercontent.com/Birdthulu/birdthulu.github.io/master/birdbuild.json' | Out-File -encoding ASCII ${{ github.workspace }}\Ishiiruka\Source\Core\DolphinWX\Main.cpp
+          (Get-Content ${{ github.workspace }}\Ishiiruka\Source\Core\DolphinWX\Main.cpp) -replace 'https://projectplusgame.com/update.json', 'https://raw.githubusercontent.com/jlambert360/jlambert360.github.io/master/birdbuild.json' | Out-File -encoding ASCII ${{ github.workspace }}\Ishiiruka\Source\Core\DolphinWX\Main.cpp
           (Get-Content ${{ github.workspace }}\Ishiiruka\Source\Core\Common\Version.cpp) -replace '${{steps.pplus_version.outputs.prop}}', '${{steps.birdbuild_version.outputs.prop}}' | Out-File -encoding ASCII ${{ github.workspace }}\Ishiiruka\Source\Core\Common\Version.cpp
 
       - name: "Build Dolphin"
@@ -108,7 +108,7 @@ jobs:
         working-directory: ${{ github.workspace }}
         shell: cmd
         run: |
-          git clone https://github.com/Birdthulu/FPM-Win-Updater
+          git clone https://github.com/jlambert360/FPM-Win-Updater
           cd FPM-Win-Updater
           nuget restore ${{ github.workspace }}\FPM-Win-Updater\DolphinUpdater.sln
           msbuild /p:Configuration=Release /p:Platform="Any CPU" ${{ github.workspace }}\FPM-Win-Updater\DolphinUpdater.sln
@@ -118,7 +118,7 @@ jobs:
         working-directory: ${{ github.workspace }}
         shell: cmd
         run: |
-          git clone https://github.com/Birdthulu/Dolphin-Replay-Manager
+          git clone https://github.com/jlambert360/Dolphin-Replay-Manager
           cd Dolphin-Replay-Manager
           msbuild /p:Configuration=Release /p:Platform="Any CPU" "${{ github.workspace }}\Dolphin-Replay-Manager\Bird's Replay Manager.sln"
           copy /b /v /y ".\Bird's Replay Manager\bin\Release\Bird's Replay Manager.exe" ${{ github.workspace }}\Binary\x64\
