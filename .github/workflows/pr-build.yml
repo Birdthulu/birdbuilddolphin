@@ -141,7 +141,7 @@ jobs:
       - name: "Package Artifact"
         working-directory: ${{ github.workspace }}
         run: |
-          $FILE_NAME="Bird Build.zip"
+          $FILE_NAME="Bird Build Update Test.zip"
           mkdir artifact
           cd .\Binary\x64\
           7z a $FILE_NAME .\*
@@ -151,7 +151,7 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v2-preview
         with:
-          name: "Bird Build"
+          name: "Bird Build Update Test"
           path: "./artifact/"
 
       - name: "Create Release"
@@ -173,6 +173,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: "${{ github.workspace }}/artifact/Bird Build.zip"
-          asset_name: "Bird Build.zip"
+          asset_path: "${{ github.workspace }}/artifact/Bird Build Update Test.zip"
+          asset_name: "Bird Build Update Test.zip"
           asset_content_type: application/zip
