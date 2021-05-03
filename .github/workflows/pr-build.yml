@@ -70,7 +70,7 @@ jobs:
         working-directory: ${{ github.workspace }}
         shell: cmd
         run: |
-          git clone https://github.com/Birdthulu/FPM-Win-Updater
+          git clone https://github.com/jlambert360/FPM-Win-Updater
           cd FPM-Win-Updater
           nuget restore ${{ github.workspace }}\FPM-Win-Updater\DolphinUpdater.sln
           msbuild /p:Configuration=Release /p:Platform="Any CPU" ${{ github.workspace }}\FPM-Win-Updater\DolphinUpdater.sln
@@ -80,7 +80,7 @@ jobs:
         working-directory: ${{ github.workspace }}
         shell: cmd
         run: |
-          git clone https://github.com/Birdthulu/Dolphin-Replay-Manager
+          git clone https://github.com/jlambert360/Dolphin-Replay-Manager
           cd Dolphin-Replay-Manager
           msbuild /p:Configuration=Release /p:Platform="Any CPU" "${{ github.workspace }}\Dolphin-Replay-Manager\Bird's Replay Manager.sln"
           copy /b /v /y ".\Bird's Replay Manager\bin\Release\Bird's Replay Manager.exe" ${{ github.workspace }}\Binary\x64\
