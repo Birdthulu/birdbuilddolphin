@@ -96,8 +96,6 @@ jobs:
           copy /b /v /y .\Ishiiruka\Changelog.txt .\Binary\x64\
           copy /b /v /y .\license.txt .\Binary\x64\
           copy /b /v /y .\portable.txt .\Binary\x64\
-          copy /b /v /y ".\Song List.txt" .\Binary\x64\
-          copy /b /v /y .\tags.txt .\Binary\x64\
           copy /b /v /y .\vcruntime140_1.dll .\Binary\x64\
 
       - name: "Package Artifact"
