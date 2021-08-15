@@ -47,6 +47,7 @@ Grape - L_Pag
 JONNY - Guttey
 	Z - Jump
 	Y - Grab
+	Tap Jump OFF
 
 WATER - Rongunshu
 	Tap Jump OFF
@@ -137,6 +138,17 @@ Jhin - Jaden
 Z%pal - Frost
 	R - Special
 	X - Side Taunt
+
+2Who? - Cork
+	Y - Down Taunt
+	Tap Jump OFF
+
+HYPER - Hyperflame
+	Y - Up Taunt
+	Tap Jump OFF
+
+BOOL - Yung Matt
+	Tap Jump OFF
 
 <-CS2-> - Glo
 	Tap Jump OFF
