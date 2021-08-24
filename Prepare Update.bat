@@ -21,4 +21,5 @@ del .\User\Config\GCPadNew.ini /Q
 del .\User\Config\GFX.ini /Q
 del .\User\Config\Hotkeys.ini /Q
 del .\User\Config\Logger.ini /Q
+del .\User\Config\Debugger.ini /Q
 del .\User\Config\WiimoteNew.ini /Q
