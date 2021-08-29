@@ -70,7 +70,7 @@ jobs:
           qtbase5-private-dev \
           libxxf86vm-dev \
           x11proto-xinerama-dev \
-          libgdk-pixbuf2.0-dev
+          libgdk-pixbuf-2.0-dev
 
       - name: "Clone Dolphin"
         shell: bash
