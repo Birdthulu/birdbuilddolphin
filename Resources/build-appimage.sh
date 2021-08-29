@@ -54,7 +54,7 @@ rm -f ${APPIMAGE_STRING}
 cp ./Tools/appimageupdatetool ./AppDir/usr/bin/
 
 # Bake an AppImage with the update metadata
-export VERSION="2.27"
+export VERSION="2.29"
 UPDATE_INFORMATION="${ZSYNC_STRING}" \
 	./Tools/linuxdeploy-update-plugin --appdir=./AppDir/
 

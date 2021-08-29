@@ -6,8 +6,8 @@ CMAKE_FLAGS='-DLINUX_LOCAL_DEV=true'
 DATA_SYS_PATH="./Data/Sys/"
 BINARY_PATH="./build/Binaries/"
 
-COMMITHASH="75a36a73b56bce9aa83d3700e087f3f81ebccf68"
-FPPVERSION="2.27"
+COMMITHASH="81e0a8f8a53f429b341d440ddb2d2b7802b66d52"
+FPPVERSION="2.29"
 
 # Move into the build directory, run CMake, and compile the project
 mv -i /home/runner/work/birdbuilddolphin/birdbuilddolphin/Ishiiruka/* /home/runner/work/birdbuilddolphin/birdbuilddolphin/
