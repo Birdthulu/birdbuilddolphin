@@ -150,5 +150,8 @@ HYPER - Hyperflame
 BOOL - Yung Matt
 	Tap Jump OFF
 
+HAWKE - Shadowhawke
+	X - Down Taunt
+
 <-CS2-> - Glo
 	Tap Jump OFF
