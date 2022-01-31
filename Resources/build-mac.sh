@@ -7,7 +7,7 @@ DATA_SYS_PATH="./Data/Sys/"
 BINARY_PATH="./build/Binaries/Dolphin.app/Contents/Resources/"
 
 # Move into the build directory, run CMake, and compile the project
-mv -f -v /home/runner/work/birdbuilddolphin/birdbuilddolphin/Ishiiruka/* /home/runner/work/birdbuilddolphin/birdbuilddolphin/
+mv -f -v /Users/runner/work/birdbuilddolphin/birdbuilddolphin/Ishiiruka/* /Users/runner/work/birdbuilddolphin/birdbuilddolphin/
 mkdir -p build
 pushd build
 cmake ${CMAKE_FLAGS} ..
