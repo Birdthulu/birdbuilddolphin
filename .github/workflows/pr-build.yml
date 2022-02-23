@@ -42,6 +42,9 @@ jobs:
         if: success()
         shell: bash
         run: |
+          wget https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.3/wxWidgets-3.1.3.tar.bz2
+          tar -xf wxWidgets-3.1.3.tar.bz2
+          rm wxWidgets-3.1.3.tar.bz2
           rm '/usr/local/bin/2to3' || true
           echo "HOMEBREW_NO_AUTO_UPDATE=1" >> $GITHUB_ENV
           brew upgrade cmake
@@ -54,6 +57,25 @@ jobs:
           sound-touch \
           git \
           hidapi
+
+      - name: "Cache wxWidgets 3.1.3"
+        uses: actions/cache@v1
+        env:
+          cache-name: "wxWidgets-3.1.3-macOS"
+        with:
+          path: ./wxWidgets-3.1.3/build
+          key: "wxWidgets-3.1.3-macOS-Catalina"
+
+      - name: "Install wxWidgets 3.1.3"
+        if: success()
+        shell: bash
+        working-directory: ${{ github.workspace }}
+        run: |
+          cd wxWidgets-3.1.3
+          cd build
+          ../configure
+          make -j7
+          sudo make install
 
       - name: "Clone Dolphin"
         shell: bash
@@ -68,6 +90,7 @@ jobs:
           cp -v -R -f ${{ github.workspace }}/Resources/build-mac.sh ${{ github.workspace }}/Ishiiruka
           cp -v -R -f ${{ github.workspace }}/Resources/MacFix/Externals ${{ github.workspace }}/Ishiiruka
           cp -v -R -f ${{ github.workspace }}/Resources/MacFix/Source ${{ github.workspace }}/Ishiiruka
+          cp -v -R -f ${{ github.workspace }}/Resources/MacFix/CMakeLists.txt ${{ github.workspace }}/Ishiiruka
 
       - name: "Build Dolphin"
         if: success()
