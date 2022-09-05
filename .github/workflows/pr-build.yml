@@ -34,7 +34,6 @@ jobs:
         run: |
           sudo dpkg --add-architecture amd64
           sudo apt update
-          sudo apt remove libgdk-pixbuf-2.0-0
           sudo apt install \
           cmake \
           pkg-config \
@@ -71,6 +70,7 @@ jobs:
           qtbase5-private-dev \
           libxxf86vm-dev \
           x11proto-xinerama-dev
+          sudo apt remove libgdk-pixbuf-2.0
 
       - name: "Clone Dolphin"
         shell: bash
