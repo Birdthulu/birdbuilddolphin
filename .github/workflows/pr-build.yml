@@ -70,7 +70,6 @@ jobs:
           qtbase5-private-dev \
           libxxf86vm-dev \
           x11proto-xinerama-dev
-          sudo apt remove libgdk-pixbuf-2.0-dev
 
       - name: "Clone Dolphin"
         shell: bash

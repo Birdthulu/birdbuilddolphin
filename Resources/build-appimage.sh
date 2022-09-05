@@ -53,6 +53,16 @@ rm -f ${APPIMAGE_STRING}
 # Package up the update tool within the AppImage
 cp ./Tools/appimageupdatetool ./AppDir/usr/bin/
 
+# remomve libs that will cause conflicts
+rm ./AppDir/usr/lib/libgmodule*
+rm ./AppDir/usr/lib/libgdk_pixbuf*
+rm ./AppDir/usr/lib/libgio*
+rm ./AppDir/usr/lib/libglib*
+rm ./AppDir/usr/lib/libgobject*
+rm ./AppDir/usr/lib/libpango*
+rm ./AppDir/usr/lib/libpangocairo*
+rm ./AppDir/usr/lib/libpangoft2*
+
 # Bake an AppImage with the update metadata
 export VERSION="2.29"
 UPDATE_INFORMATION="${ZSYNC_STRING}" \
