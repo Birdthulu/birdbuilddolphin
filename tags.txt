@@ -135,7 +135,7 @@ Jhin - Jaden
 	Y - Special
 	Tap Jump OFF
 
-Z%pal - Frost
+Star - Frost
 	R - Special
 	X - Side Taunt
 
@@ -152,6 +152,11 @@ BOOL - Yung Matt
 
 HAWKE - Shadowhawke
 	X - Down Taunt
+
+LWyR - Shay
+	R - Grab
+	X - Grab
+	Tap Jump OFF
 
 <-CS2-> - Glo
 	Tap Jump OFF

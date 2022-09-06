@@ -16,26 +16,6 @@ jobs:
     name: "Windows Dolphin"
     runs-on: windows-2019
     steps:
-      - name: "Download Data"
-        working-directory: ${{ github.workspace }}
-        run: |
-          Invoke-WebRequest -Uri https://raw.githubusercontent.com/jlambert360/jlambert360.github.io/master/BirdBuildTest.json -UseBasicParsing -OutFile "birdbuild.json"
-          Invoke-WebRequest -Uri https://raw.githubusercontent.com/jlambert360/jlambert360.github.io/master/PPlusTest.json -UseBasicParsing -OutFile "pplus.json"
-
-      - name: "Get PPlus Version"
-        id: pplus_version
-        uses: notiz-dev/github-action-json-property@release
-        with:
-          path: 'pplus.json'
-          prop_path: 'version'
-
-      - name: "Get Bird Build Version"
-        id: birdbuild_version
-        uses: notiz-dev/github-action-json-property@release
-        with:
-          path: 'birdbuild.json'
-          prop_path: 'version'
-
       - name: "Checkout"
         uses: actions/checkout@v2.3.1
 
@@ -78,7 +58,9 @@ jobs:
         run: |
           (Get-Content ${{ github.workspace }}\Ishiiruka\Source\Core\UICommon\DiscordPresence.cpp) -replace '622143930900807680', '641740042007740456' | Out-File -encoding ASCII ${{ github.workspace }}\Ishiiruka\Source\Core\UICommon\DiscordPresence.cpp
           (Get-Content ${{ github.workspace }}\Ishiiruka\Source\Core\DolphinWX\Main.cpp) -replace 'https://projectplusgame.com/update.json', 'https://raw.githubusercontent.com/jlambert360/jlambert360.github.io/master/birdbuild.json' | Out-File -encoding ASCII ${{ github.workspace }}\Ishiiruka\Source\Core\DolphinWX\Main.cpp
-          (Get-Content ${{ github.workspace }}\Ishiiruka\Source\Core\Common\Version.cpp) -replace '${{steps.pplus_version.outputs.prop}}', 'Bird Build v4.3.29 BETA' | Out-File -encoding ASCII ${{ github.workspace }}\Ishiiruka\Source\Core\Common\Version.cpp
+          (Get-Content ${{ github.workspace }}\Ishiiruka\Source\Core\Common\Version.cpp) -replace '${{steps.pplus_version.outputs.prop}}', 'Bird Build v4.3 BETA' | Out-File -encoding ASCII ${{ github.workspace }}\Ishiiruka\Source\Core\Common\Version.cpp
+          (Get-Content ${{ github.workspace }}\Ishiiruka\Source\Core\DolphinWX\GameListCtrl.cpp) -replace 'Project+ Offline Launcher.elf', 'Bird Build Offline.dol' | Out-File -encoding ASCII ${{ github.workspace }}\Ishiiruka\Source\Core\DolphinWX\GameListCtrl.cpp
+          (Get-Content ${{ github.workspace }}\Ishiiruka\Source\Core\DolphinWX\GameListCtrl.cpp) -replace 'Project+ Netplay Launcher.elf', 'Bird Build Netplay.dol' | Out-File -encoding ASCII ${{ github.workspace }}\Ishiiruka\Source\Core\DolphinWX\GameListCtrl.cpp
 
       - name: "Build Dolphin"
         shell: cmd
@@ -149,7 +131,7 @@ jobs:
         with:
           tag_name: ${{ env.GIT_HASH }}
           release_name: Release ${{ env.GIT_HASH }}
-          body: "${{steps.birdbuild_version.outputs.prop}}"
+          body: ""
           draft: false
           prerelease: false
 
