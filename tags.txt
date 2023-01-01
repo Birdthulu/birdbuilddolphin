@@ -158,5 +158,9 @@ LWyR - Shay
 	X - Grab
 	Tap Jump OFF
 
+G@ - Gallo
+	R - Attack
+	Tap Jump OFF
+
 <-CS2-> - Glo
 	Tap Jump OFF
