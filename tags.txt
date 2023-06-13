@@ -32,7 +32,7 @@ Grape - L_Pag
 	X - Down Taunt
 	Tap Jump OFF
 
-??? - Mr. W&L
+Quack - Mr. W&L
 	X - Up Taunt
 	Tap Jump OFF
 
