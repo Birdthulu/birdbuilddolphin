@@ -17,14 +17,6 @@ CHIMP - Ant
 j - Bongo
 	X - Side Taunt
 
-SGrTF - Aidan
-	R - Jump
-	Y - Up Taunt
-	Tap Jump OFF
-
-Wah - Twisty
-	Default
-
 CUFF - Bubbles
 	All taunts set to NONE
 	X - Up Taunt
@@ -52,10 +44,6 @@ JONNY - Guttey
 WATER - Rongunshu
 	Tap Jump OFF
 
-qt(downarrow) - Jo
-	X - Side Taunt
-	Tap Jump OFF
-
 TUPAC - Krump
 	Y - Side Taunt
 
@@ -63,10 +51,6 @@ YumiZ - Boiko
 	R - Jump
 	X - None
 	Tap Jump OFF
-
-Saber - Sugar
-	Rumble on
-	Y - Side Taunt
 
 EPYON - Nave
 	Tap Jump OFF
@@ -76,9 +60,6 @@ bgh - Dotcom
 	X - Down Taunt
 	Tap Jump OFF
 
-420IQ - Narq
-	Default
-	
 (stango's circle thing) - Stango
 	L - Down Taunt
 
@@ -92,13 +73,6 @@ F77 - Ferrari77
 	CStick - Tilt
 	Tap Jump OFF
 
-MaN - Mangachu
-	CStick - Charge
-	X - Down Taunt
-
-Fable - Fable
-	Tap Jump OFF
-
 Pog - Envy
 	Tap Jump OFF
 	CStick - Charge
@@ -110,10 +84,6 @@ Swach - Switch
 	L - Up Taunt
 	Tap Jump OFF
 
-Tavi - Tavi
-	L - Up Taunt
-	X - Grab
-	
 WWW. - Woody
 	Z - Up Taunt
 	L - Attack
@@ -122,11 +92,6 @@ WWW. - Woody
 	
 MARY - Ronan
 	Default
-
-Jhin - Jaden
-	L - Jump
-	Y - Up Taunt
-	Tap Jump OFF
 
 .. - DVD
 	R - Side Taunt
@@ -139,14 +104,6 @@ Star - Frost
 	R - Special
 	X - Side Taunt
 
-2Who? - Cork
-	Y - Down Taunt
-	Tap Jump OFF
-
-HYPER - Hyperflame
-	Y - Up Taunt
-	Tap Jump OFF
-
 BOOL - Yung Matt
 	Tap Jump OFF
 
@@ -154,6 +111,7 @@ HAWKE - Shadowhawke
 	X - Down Taunt
 
 LWyR - Shay
+	Z - Down Taunt
 	R - Grab
 	X - Grab
 	Tap Jump OFF
@@ -161,6 +119,17 @@ LWyR - Shay
 G@ - Gallo
 	R - Attack
 	Tap Jump OFF
+
+harow - Kate
+	X - Side Taunt
+	Tap Jump OFF
+	
+F -	Domlax
+	X - Down Taunt
+	Tap Jump OFF
+	
+thal - Thalia
+	X - Side Taunt
 
 <-CS2-> - Glo
 	Tap Jump OFF
